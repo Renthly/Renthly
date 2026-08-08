@@ -153,74 +153,71 @@
 
 .hero-horizon {
   position: absolute;
-  bottom: -25vh;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 180vw;
-  height: 70vh;
-  border-radius: 50% 50% 0 0;
-  background: radial-gradient(ellipse 60% 50% at 50% 0%,
-    rgba(0, 240, 255, 0.35) 0%,
-    rgba(59, 157, 255, 0.2) 15%,
-    rgba(59, 157, 255, 0.06) 35%,
-    transparent 55%);
+  width: 200vw;
+  height: 55vh;
   pointer-events: none;
-  filter: blur(2px);
-  animation: horizonBreathe 5s ease-in-out infinite;
+  z-index: 1;
 }
 
-@keyframes horizonBreathe {
-  0%, 100% { opacity: 0.8; transform: translateX(-50%) scale(1); }
-  50% { opacity: 1; transform: translateX(-50%) scale(1.06); }
-}
-
+/* The curved glow arc — like planet atmosphere */
 .hero-horizon::before {
   content: '';
   position: absolute;
-  top: 0;
+  bottom: -10vh;
   left: 50%;
   transform: translateX(-50%);
-  width: 50%;
-  height: 2px;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(0, 240, 255, 0.9) 20%,
-    rgba(0, 240, 255, 1) 50%,
-    rgba(59, 157, 255, 0.8) 80%,
-    transparent 100%);
-  border-radius: 50%;
-  filter: blur(1px);
-  box-shadow:
-    0 0 20px rgba(0, 240, 255, 0.6),
-    0 0 60px rgba(0, 240, 255, 0.3),
-    0 0 120px rgba(0, 240, 255, 0.15),
-    0 -10px 80px rgba(59, 157, 255, 0.2);
-  animation: horizonLinePulse 3s ease-in-out infinite;
+  width: 100%;
+  height: 100%;
+  border-radius: 50% 50% 0 0;
+  background: radial-gradient(ellipse 70% 55% at 50% 100%,
+    rgba(0, 240, 255, 0.55) 0%,
+    rgba(0, 240, 255, 0.3) 12%,
+    rgba(59, 157, 255, 0.15) 28%,
+    rgba(59, 157, 255, 0.04) 45%,
+    transparent 65%);
+  filter: blur(3px);
+  animation: horizonBreathe 5s ease-in-out infinite;
 }
 
+/* The bright curved line at the crest */
 .hero-horizon::after {
   content: '';
   position: absolute;
-  top: -5px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 35%;
+  width: 80%;
   height: 3px;
+  border-radius: 50%;
   background: linear-gradient(90deg,
-    transparent,
-    rgba(0, 240, 255, 0.5),
-    rgba(0, 240, 255, 0.7),
-    rgba(0, 240, 255, 0.5),
-    transparent);
-  filter: blur(3px);
-  opacity: 0.6;
+    transparent 0%,
+    rgba(0, 240, 255, 0.4) 15%,
+    rgba(0, 240, 255, 1) 40%,
+    rgba(0, 240, 255, 1) 60%,
+    rgba(59, 157, 255, 0.6) 85%,
+    transparent 100%);
+  filter: blur(1px);
+  box-shadow:
+    0 0 15px rgba(0, 240, 255, 0.9),
+    0 0 40px rgba(0, 240, 255, 0.6),
+    0 0 80px rgba(0, 240, 255, 0.3),
+    0 0 140px rgba(59, 157, 255, 0.15),
+    0 -20px 60px rgba(0, 240, 255, 0.2);
+  animation: horizonLinePulse 3s ease-in-out infinite;
+}
+
+@keyframes horizonBreathe {
+  0%, 100% { opacity: 0.85; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
 }
 
 @keyframes horizonLinePulse {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
+  0%, 100% { opacity: 0.7; filter: blur(1px) brightness(1); }
+  50% { opacity: 1; filter: blur(0.5px) brightness(1.3); }
 }
-
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -840,7 +837,20 @@
   left: 45%;
   animation: orbDrift2 22s ease-in-out infinite;
 }
-
+/* Extra intensity layer at bottom */
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40vh;
+  background: radial-gradient(ellipse 80% 50% at 50% 100%,
+    rgba(0, 240, 255, 0.08) 0%,
+    transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
 @keyframes orbDrift1 {
   0%, 100% { transform: translate(0,0) scale(1); }
   33% { transform: translate(30px,-25px) scale(1.08); }
