@@ -1,274 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renthly — Property Management Software That Grows With You</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700;800&family=Paprika&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renthly — Grows with you.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paprika&family=Caveat:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-island">
-            <a href="#" class="nav-logo">Renthly</a>
-            
-            <div class="nav-tabs">
-                <a href="#features" class="nav-tab">
-                    <span>Features</span>
-                    <div class="tab-underline"></div>
-                </a>
-                <a href="#pricing" class="nav-tab">
-                    <span>Pricing</span>
-                    <div class="tab-underline"></div>
-                </a>
-                <a href="#about" class="nav-tab">
-                    <span>About</span>
-                    <div class="tab-underline"></div>
-                </a>
-                <a href="#resources" class="nav-tab">
-                    <span>Resources</span>
-                    <div class="tab-underline"></div>
-                </a>
+
+<!-- ============ NAVBAR ============ -->
+<header class="island-wrap">
+  <nav class="island" id="island">
+    <a href="#" class="logo">Renthly</a>
+
+    <ul class="tabs">
+      <li><a href="#" class="tab-link active"><span>Features</span></a></li>
+      <li><a href="#" class="tab-link"><span>Pricing</span></a></li>
+      <li><a href="#" class="tab-link"><span>About</span></a></li>
+      <li><a href="#" class="tab-link"><span>Resources</span></a></li>
+    </ul>
+
+    <a href="#" class="btn-contact"><span>Contact us</span></a>
+
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" class="mob-link">Features</a>
+    <a href="#" class="mob-link">Pricing</a>
+    <a href="#" class="mob-link">About</a>
+    <a href="#" class="mob-link">Resources</a>
+    <a href="#" class="mob-cta">Contact us</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="horizon" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+
+    <!-- LEFT: copy -->
+    <div class="hero-copy">
+      <p class="eyebrow reveal" data-dir="up">The missing middle, solved</p>
+
+      <h1 class="headline">
+        <span class="reveal" data-dir="up" style="--d:0.05s">Whatever the</span>
+        <span class="reveal" data-dir="up" style="--d:0.12s"><em class="script">size</em> of your</span>
+        <span class="reveal" data-dir="up" style="--d:0.19s"><em class="script">portfolio</em>,</span>
+        <span class="reveal" data-dir="up" style="--d:0.26s">Renthly has a</span>
+        <span class="reveal" data-dir="up" style="--d:0.33s">plan <em class="script">built</em> for it.</span>
+      </h1>
+
+      <p class="subtext reveal" data-dir="up" style="--d:0.42s">
+        From single properties to large portfolios — including the growing,
+        mid-sized landlords that most platforms leave behind.
+      </p>
+
+      <div class="hero-actions reveal" data-dir="up" style="--d:0.5s">
+        <a href="#" class="btn-primary"><span>Start free trial</span></a>
+        <a href="#" class="btn-ghost"><span>See pricing</span></a>
+      </div>
+      <p class="trial-note reveal" data-dir="up" style="--d:0.56s">14-day free trial · No credit card required</p>
+
+      <div class="trust reveal" data-dir="up" style="--d:0.64s">
+        <div class="trust-item">
+          <span class="trust-num">300,000+</span>
+          <span class="trust-label">U.S. property management companies to serve</span>
+        </div>
+        <div class="trust-div"></div>
+        <div class="trust-item">
+          <span class="trust-num">1 – 1,500+</span>
+          <span class="trust-label">units supported, one plan per stage</span>
+        </div>
+        <div class="trust-div"></div>
+        <div class="trust-item">
+          <span class="trust-num">Stripe</span>
+          <span class="trust-label">secured rent collection & payouts</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: mockups -->
+    <div class="hero-visual">
+
+      <!-- big center mockup: analytics dashboard -->
+      <div class="mock mock-main reveal" data-dir="right" style="--d:0.2s">
+        <div class="mock-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="mock-url">app.renthly.com/dashboard</span>
+        </div>
+        <div class="mock-body">
+          <div class="mb-head">
+            <p class="mb-title">Portfolio overview</p>
+            <span class="mb-pill">Live</span>
+          </div>
+
+          <div class="mb-stats">
+            <div class="mb-stat">
+              <span class="mb-stat-label">Occupancy</span>
+              <span class="mb-stat-val">96.4%</span>
             </div>
-            
-            <a href="#contact" class="nav-cta">
-                <span>Contact Us</span>
-                <div class="tab-underline"></div>
-            </a>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="#features" class="mobile-link">Features</a>
-            <a href="#pricing" class="mobile-link">Pricing</a>
-            <a href="#about" class="mobile-link">About</a>
-            <a href="#resources" class="mobile-link">Resources</a>
-            <a href="#contact" class="mobile-link mobile-cta">Contact Us</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <!-- Glowing Horizon Effect -->
-        <div class="horizon-container">
-            <div class="horizon-glow"></div>
-            <div class="horizon-line"></div>
-            <div class="horizon-reflection"></div>
-        </div>
-        
-        <!-- Floating Particles -->
-        <div class="particles" id="particles"></div>
-
-        <div class="hero-container">
-            <!-- Left Content -->
-            <div class="hero-left">
-                <div class="hero-badge pan-in-left">
-                    <span class="badge-dot"></span>
-                    <span>Now launching in the United States</span>
-                </div>
-                
-                <h1 class="hero-title">
-                    <span class="title-line pan-in-up" style="--delay: 0.1s">
-                        Whatever the size of your
-                    </span>
-                    <span class="title-line pan-in-up" style="--delay: 0.2s">
-                        portfolio, <span class="highlight">Renthly</span> has a
-                    </span>
-                    <span class="title-line pan-in-up" style="--delay: 0.3s">
-                        plan built for <span class="highlight">you</span>
-                    </span>
-                </h1>
-                
-                <p class="hero-subtitle pan-in-up" style="--delay: 0.5s">
-                    From single properties to large portfolios — including the growing, 
-                    mid-sized landlords that most platforms leave behind.
-                </p>
-                
-                <div class="hero-ctas pan-in-up" style="--delay: 0.7s">
-                    <a href="#demo" class="btn-primary">
-                        <span>Start Free Trial</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                    <a href="#demo" class="btn-secondary">
-                        <span>Book a Demo</span>
-                    </a>
-                </div>
-                
-                <!-- Trust Badges -->
-                <div class="trust-badges pan-in-left" style="--delay: 0.9s">
-                    <div class="badge-item">
-                        <div class="badge-icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            </svg>
-                        </div>
-                        <span>Bank-level Security</span>
-                    </div>
-                    <div class="badge-item">
-                        <div class="badge-icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                <polyline points="22 4 12 14.01 9 11.01"/>
-                            </svg>
-                        </div>
-                        <span>14-Day Free Trial</span>
-                    </div>
-                    <div class="badge-item">
-                        <div class="badge-icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-                            </svg>
-                        </div>
-                        <span>300K+ Landlords Trust Us</span>
-                    </div>
-                </div>
+            <div class="mb-stat">
+              <span class="mb-stat-label">Rent collected</span>
+              <span class="mb-stat-val">$184,200</span>
             </div>
-
-            <!-- Right Content - Mockups -->
-            <div class="hero-right">
-                <!-- Small Mockup Top Right -->
-                <div class="mockup-small mockup-top-right float-animation" style="--float-delay: 0s">
-                    <div class="mockup-header">
-                        <div class="mockup-dots">
-                            <span></span><span></span><span></span>
-                        </div>
-                        <span class="mockup-title">Rent Collection</span>
-                    </div>
-                    <div class="mockup-body">
-                        <div class="rent-item">
-                            <div class="rent-avatar">JD</div>
-                            <div class="rent-info">
-                                <div class="rent-name">John Doe</div>
-                                <div class="rent-addr">Unit 4B, Oak Street</div>
-                            </div>
-                            <div class="rent-status paid">Paid</div>
-                        </div>
-                        <div class="rent-item">
-                            <div class="rent-avatar">SM</div>
-                            <div class="rent-info">
-                                <div class="rent-name">Sarah Miller</div>
-                                <div class="rent-addr">Unit 2A, Pine Ave</div>
-                            </div>
-                            <div class="rent-status pending">Due</div>
-                        </div>
-                        <div class="rent-item">
-                            <div class="rent-avatar">RJ</div>
-                            <div class="rent-info">
-                                <div class="rent-name">Robert Johnson</div>
-                                <div class="rent-addr">Unit 7C, Elm Blvd</div>
-                            </div>
-                            <div class="rent-status paid">Paid</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Big Mockup Center -->
-                <div class="mockup-big pan-in-right" style="--delay: 0.4s">
-                    <div class="mockup-header">
-                        <div class="mockup-dots">
-                            <span></span><span></span><span></span>
-                        </div>
-                        <span class="mockup-title">Portfolio Analytics</span>
-                        <div class="mockup-controls">
-                            <span></span><span></span>
-                        </div>
-                    </div>
-                    <div class="mockup-body">
-                        <div class="analytics-stats">
-                            <div class="stat-card">
-                                <div class="stat-label">Monthly Revenue</div>
-                                <div class="stat-value">$24,850</div>
-                                <div class="stat-change positive">+12.5%</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-label">Occupancy Rate</div>
-                                <div class="stat-value">94.2%</div>
-                                <div class="stat-change positive">+3.1%</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-label">Active Units</div>
-                                <div class="stat-value">142</div>
-                                <div class="stat-change neutral">12 pending</div>
-                            </div>
-                        </div>
-                        <div class="analytics-chart">
-                            <div class="chart-bars">
-                                <div class="chart-bar" style="--height: 45%; --delay: 0.1s"></div>
-                                <div class="chart-bar" style="--height: 62%; --delay: 0.15s"></div>
-                                <div class="chart-bar" style="--height: 55%; --delay: 0.2s"></div>
-                                <div class="chart-bar" style="--height: 78%; --delay: 0.25s"></div>
-                                <div class="chart-bar" style="--height: 85%; --delay: 0.3s"></div>
-                                <div class="chart-bar" style="--height: 92%; --delay: 0.35s"></div>
-                                <div class="chart-bar active" style="--height: 100%; --delay: 0.4s"></div>
-                            </div>
-                            <div class="chart-labels">
-                                <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Small Mockup Bottom Left -->
-                <div class="mockup-small mockup-bottom-left float-animation" style="--float-delay: 1.5s">
-                    <div class="mockup-header">
-                        <div class="mockup-dots">
-                            <span></span><span></span><span></span>
-                        </div>
-                        <span class="mockup-title">Maintenance</span>
-                    </div>
-                    <div class="mockup-body">
-                        <div class="maint-item">
-                            <div class="maint-icon">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                    <circle cx="12" cy="12" r="3"/>
-                                    <path d="M12 1v6m0 6v6m4.22-10.22l4.24-4.24M6.34 6.34L2.1 2.1m17.9 17.9l-4.24-4.24M6.34 17.66l-4.24 4.24"/>
-                                </svg>
-                            </div>
-                            <div class="maint-info">
-                                <div class="maint-title">HVAC Repair</div>
-                                <div class="maint-meta">Unit 4B • High</div>
-                            </div>
-                        </div>
-                        <div class="maint-item">
-                            <div class="maint-icon">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                                    <path d="M2 17l10 5 10-5"/>
-                                    <path d="M2 12l10 5 10-5"/>
-                                </svg>
-                            </div>
-                            <div class="maint-info">
-                                <div class="maint-title">Plumbing Issue</div>
-                                <div class="maint-meta">Unit 2A • Medium</div>
-                            </div>
-                        </div>
-                        <div class="progress-ring">
-                            <svg viewBox="0 0 36 36">
-                                <path class="ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                <path class="ring-fill" stroke-dasharray="75, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                            </svg>
-                            <div class="ring-text">75%</div>
-                            <div class="ring-label">Resolved</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="mb-stat">
+              <span class="mb-stat-label">Open requests</span>
+              <span class="mb-stat-val">7</span>
             </div>
-        </div>
-    </section>
+          </div>
 
-    <script src="main.js"></script>
+          <div class="mb-chart">
+            <svg viewBox="0 0 300 90" preserveAspectRatio="none" class="chart-svg">
+              <polygon class="chart-fill" points="0,70 30,60 60,64 90,45 120,50 150,30 180,36 210,20 240,24 270,10 300,14 300,90 0,90" />
+              <polyline class="chart-line" points="0,70 30,60 60,64 90,45 120,50 150,30 180,36 210,20 240,24 270,10 300,14" />
+            </svg>
+          </div>
+
+          <div class="mb-rows">
+            <div class="mb-row">
+              <span class="mb-row-dot green"></span>
+              <span class="mb-row-text">Maple Street Apts — rent paid</span>
+              <span class="mb-row-tag">Today</span>
+            </div>
+            <div class="mb-row">
+              <span class="mb-row-dot blue"></span>
+              <span class="mb-row-text">Unit 4B — lease renewal sent</span>
+              <span class="mb-row-tag">Today</span>
+            </div>
+            <div class="mb-row">
+              <span class="mb-row-dot amber"></span>
+              <span class="mb-row-text">Cedar Court — maintenance flagged</span>
+              <span class="mb-row-tag">Yesterday</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- small top-right mockup: maintenance -->
+      <div class="mock mock-small mock-tr reveal" data-dir="up" style="--d:0.5s">
+        <div class="mock-bar tiny">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        </div>
+        <div class="mock-body-sm">
+          <p class="sm-title">Maintenance</p>
+          <div class="sm-row">
+            <span class="sm-icon">🛠️</span>
+            <div class="sm-col">
+              <span class="sm-line">Leaking faucet — Unit 12</span>
+              <span class="sm-sub">Assigned to Marco</span>
+            </div>
+          </div>
+          <span class="sm-badge">In progress</span>
+        </div>
+      </div>
+
+      <!-- small bottom-left mockup: tenant portal -->
+      <div class="mock mock-small mock-bl reveal" data-dir="left" style="--d:0.58s">
+        <div class="mock-bar tiny">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        </div>
+        <div class="mock-body-sm">
+          <p class="sm-title">Tenant portal</p>
+          <div class="sm-pay">
+            <span class="sm-pay-label">Rent due Aug 1</span>
+            <span class="sm-pay-amt">$1,450</span>
+          </div>
+          <button class="sm-btn">Pay rent</button>
+        </div>
+      </div>
+
+      <div class="glow-orb glow-orb-1"></div>
+      <div class="glow-orb glow-orb-2"></div>
+    </div>
+
+  </div>
+
+  <div class="scroll-cue reveal" data-dir="up" style="--d:0.8s">
+    <span>Scroll</span>
+    <div class="scroll-line"><i></i></div>
+  </div>
+</section>
+
+<script src="main.js"></script>
 </body>
 </html>
