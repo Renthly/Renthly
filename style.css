@@ -228,32 +228,30 @@ ul{ list-style:none; }
 =================================================================== */
 .hero{
   position:relative;
-  
-  
   display:flex;
   align-items:center;
-  
   background:var(--charcoal);
-  
-  min-height:100svh;   /* was min-height:100svh (keep) */
-  height:100svh;       /* ADD this line */
-  overflow:hidden;     /* ADD this line */
-  padding:130px 24px 40px; /* trimmed bottom padding from 60px */
-
+  min-height:100svh;
+  height:100svh;
+  overflow-y:auto;     /* was hidden — auto = safety net on short screens, invisible on normal ones */
+  overflow-x:hidden;
+  padding:110px 24px 30px; /* was 130px 24px 40px — trims the height budget content needs */
 }
 
 .horizon{
   position:absolute;
-  left:50%; bottom:-6%;
-  width:min(1400px, 160vw);
+  left:50%; bottom:-10%;        /* was -6% */
+  width:min(1600px, 180vw);     /* was min(1400px, 160vw) */
   aspect-ratio:1400/760;
   transform:translateX(-50%);
   background:url('assets/horizon-glow.png') center bottom / cover no-repeat;
-  opacity:.85;
+  opacity:1;                    /* was .85 */
+  filter:blur(6px);             /* ADD — extra feather on the raster glow itself */
   mix-blend-mode:screen;
   pointer-events:none;
   animation:horizonPulse 6s ease-in-out infinite;
 }
+
 @keyframes horizonPulse{
   0%,100%{ opacity:.72; }
   50%{ opacity:.95; }
@@ -280,32 +278,23 @@ ul{ list-style:none; }
 }
 
 /* ---- copy ---- */
-.eyebrow{
-  display:inline-block;
-  font-size:.78rem;
-  font-weight:600;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--cyan);
-  padding:6px 14px;
-  border:1px solid var(--cyan-soft);
-  border-radius:999px;
-  margin-bottom:22px;
-}
+.eyebrow{ margin-bottom:14px; }
 
 .headline{
-  font-size:clamp(2.3rem, 4.6vw, 3.6rem);
-  line-height:1.12;
-  font-weight:700;
+  font-family:var(--font-script);   /* ADD — whole headline now cursive, not just highlighted words */
+  font-style:italic;                /* ADD — italicizes the plain/main words */
+  font-size:clamp(2.2rem, 4.4vw, 3.6rem); /* bump up since script faces read smaller */
+  line-height:1.15;
+  font-weight:600;
   letter-spacing:-.01em;
   color:var(--cream);
 }
+
 .headline span{ display:block; }
 .headline .script{
-  font-family:var(--font-script);
   font-weight:700;
-  font-style:normal;
-  font-size:1.28em;
+  font-style:italic;                /* was normal — now matches the italic main text */
+  font-size:1.2em;
   background:linear-gradient(90deg, var(--cyan), var(--sky));
   -webkit-background-clip:text;
   background-clip:text;
@@ -313,20 +302,16 @@ ul{ list-style:none; }
   padding-right:.05em;
 }
 
-.subtext{
-  margin-top:22px;
-  max-width:520px;
-  font-size:1.05rem;
-  line-height:1.65;
-  color:var(--cream-dim);
-}
+/*Now the whole headline reads in Caveat italic, with the cyan/blue gradient words just slightly bigger and bolder for emphasis instead of being a totally different font.
 
-.hero-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px;
-  margin-top:34px;
-}
+Want me to just apply all three fixes directly to your files and send back a clean, re-screenshotted version so you can eyeball it before touching any code yourself?
+*/
+.subtext{ margin-top:16px; }        /* was 22px */
+.hero-actions{ margin-top:22px; }   /* was 34px */
+.trial-note{ margin-top:10px; }     /* was 14px */
+.avatars{ margin-top:14px; }        /* was 18px */
+
+.hero-visual{ height:clamp(380px, 46vh, 520px); } /* was fixed 560px */
 
 .btn-primary{
   position:relative;
