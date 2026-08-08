@@ -152,70 +152,69 @@
 
 .hero-horizon {
   position: absolute;
-  bottom: -45vh;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 350vw;
-  height: 90vh;
+  width: 300vw;
+  height: 70vh;
   border-radius: 50% 50% 0 0;
-  background: radial-gradient(ellipse 85% 65% at 50% 100%,
-    rgba(0, 240, 255, 0.7) 0%,
-    rgba(0, 240, 255, 0.4) 8%,
-    rgba(59, 157, 255, 0.2) 20%,
-    rgba(59, 157, 255, 0.06) 38%,
-    transparent 55%);
+  background: radial-gradient(ellipse 80% 70% at 50% 100%,
+    rgba(0, 240, 255, 0.75) 0%,
+    rgba(0, 240, 255, 0.4) 12%,
+    rgba(59, 157, 255, 0.18) 28%,
+    rgba(59, 157, 255, 0.04) 45%,
+    transparent 65%);
   pointer-events: none;
   filter: blur(1px);
   animation: horizonBreathe 5s ease-in-out infinite;
   z-index: 1;
 }
 
-/* The bright crest line — follows the yellow arc */
+/* Bright crest line at the top of the dome */
 .hero-horizon::before {
   content: '';
   position: absolute;
-  bottom: 44vh;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 180vw;
+  width: 100vw;
   height: 3px;
   border-radius: 50%;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(0, 240, 255, 0.2) 10%,
-    rgba(0, 240, 255, 0.8) 30%,
-    rgba(0, 240, 255, 1) 50%,
-    rgba(0, 240, 255, 0.8) 70%,
-    rgba(59, 157, 255, 0.4) 90%,
+    rgba(0, 240, 255, 0.3) 15%,
+    rgba(0, 240, 255, 1) 40%,
+    rgba(0, 240, 255, 1) 60%,
+    rgba(59, 157, 255, 0.5) 85%,
     transparent 100%);
   filter: blur(1px);
   box-shadow:
-    0 0 25px rgba(0, 240, 255, 1),
-    0 0 60px rgba(0, 240, 255, 0.7),
-    0 0 120px rgba(0, 240, 255, 0.4),
-    0 0 200px rgba(59, 157, 255, 0.2),
-    0 -40px 100px rgba(0, 240, 255, 0.25);
+    0 0 30px rgba(0, 240, 255, 1),
+    0 0 70px rgba(0, 240, 255, 0.7),
+    0 0 140px rgba(0, 240, 255, 0.35),
+    0 0 250px rgba(59, 157, 255, 0.15),
+    0 -50px 100px rgba(0, 240, 255, 0.3);
   animation: horizonLinePulse 3s ease-in-out infinite;
 }
 
-/* Extra bloom layer for intensity */
+/* Extra bloom layer */
 .hero-horizon::after {
   content: '';
   position: absolute;
-  bottom: 42vh;
+  top: -2px;
   left: 50%;
   transform: translateX(-50%);
-  width: 140vw;
-  height: 8px;
+  width: 70vw;
+  height: 10px;
   border-radius: 50%;
   background: linear-gradient(90deg,
     transparent,
-    rgba(0, 240, 255, 0.1),
-    rgba(0, 240, 255, 0.4),
-    rgba(0, 240, 255, 0.1),
+    rgba(0, 240, 255, 0.15),
+    rgba(0, 240, 255, 0.5),
+    rgba(0, 240, 255, 0.15),
     transparent);
-  filter: blur(6px);
-  opacity: 0.8;
+  filter: blur(8px);
+  opacity: 0.9;
 }
 
 @keyframes horizonBreathe {
@@ -224,8 +223,8 @@
 }
 
 @keyframes horizonLinePulse {
-  0%, 100% { opacity: 0.75; filter: blur(1px) brightness(1); }
-  50% { opacity: 1; filter: blur(0.5px) brightness(1.5); }
+  0%, 100% { opacity: 0.8; filter: blur(1px) brightness(1); }
+  50% { opacity: 1; filter: blur(0.5px) brightness(1.6); }
 }
 .hero-grid {
   display: grid;
@@ -402,7 +401,9 @@
   flex-shrink: 0;
 }
 
-.trust-avatar:first-child { margin-left: 0; }
+.trust-avatar:first-child {
+  margin-left: 0;
+}
 
 .trust-avatar img {
   width: 100%;
@@ -989,4 +990,8 @@
 }
   .hero-ctas { flex-direction: column; width: 100%; }
   .btn-primary, .btn-secondary { width: 100%; }
+}
+.hero .container {
+  max-width: 100%;
+  padding: 0 24px;
 }
