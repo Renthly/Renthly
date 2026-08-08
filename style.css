@@ -228,12 +228,18 @@ ul{ list-style:none; }
 =================================================================== */
 .hero{
   position:relative;
-  min-height:100svh;
-  padding:130px 24px 60px;
+  
+  
   display:flex;
   align-items:center;
-  overflow:hidden;
+  
   background:var(--charcoal);
+  
+  min-height:100svh;   /* was min-height:100svh (keep) */
+  height:100svh;       /* ADD this line */
+  overflow:hidden;     /* ADD this line */
+  padding:130px 24px 40px; /* trimmed bottom padding from 60px */
+
 }
 
 .horizon{
@@ -611,4 +617,34 @@ ul{ list-style:none; }
   .mock-tr{ top:-8%; right:-2%; }
   .mock-bl{ bottom:-6%; left:-2%; }
   .headline{ font-size:2rem; }
+}
+.avatars{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-top:18px;
+}
+.avatar-stack{ display:flex; }
+.avatar-img{
+  width:38px; height:38px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--charcoal);
+  margin-left:-12px;
+  box-shadow:0 0 0 1px rgba(255,252,230,0.15);
+}
+.avatar-img:first-child{ margin-left:0; }
+.avatar-note{
+  font-size:.78rem;
+  color:var(--cream-faint);
+}
+.horizon-line{
+  position:absolute;
+  left:50%; bottom:-4%;
+  width:min(1400px, 160vw);
+  height:auto;
+  transform:translateX(-50%);
+  pointer-events:none;
+  z-index:1;
+  animation:horizonPulse 6s ease-in-out infinite; /* reuses your existing keyframe */
 }

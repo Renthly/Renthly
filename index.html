@@ -42,6 +42,18 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="horizon" aria-hidden="true"></div>
+  <svg class="horizon-line" viewBox="0 0 1400 260" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <filter id="horizonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path d="M0,240 Q700,-60 1400,240" fill="none" stroke="#22f6ff" stroke-width="2" filter="url(#horizonGlow)"/>
+</svg>
   <div class="grain" aria-hidden="true"></div>
 
   <div class="hero-inner">
@@ -68,25 +80,16 @@
         <a href="#" class="btn-ghost"><span>See pricing</span></a>
       </div>
       <p class="trial-note reveal" data-dir="up" style="--d:0.56s">14-day free trial · No credit card required</p>
-
-      <div class="trust reveal" data-dir="up" style="--d:0.64s">
-        <div class="trust-item">
-          <span class="trust-num">300,000+</span>
-          <span class="trust-label">U.S. property management companies to serve</span>
-        </div>
-        <div class="trust-div"></div>
-        <div class="trust-item">
-          <span class="trust-num">1 – 1,500+</span>
-          <span class="trust-label">units supported, one plan per stage</span>
-        </div>
-        <div class="trust-div"></div>
-        <div class="trust-item">
-          <span class="trust-num">Stripe</span>
-          <span class="trust-label">secured rent collection & payouts</span>
-        </div>
-      </div>
-    </div>
-
+<div class="avatars reveal" data-dir="up" style="--d:0.7s">
+  <div class="avatar-stack">
+    <img src="https://i.pravatar.cc/64?img=12" alt="" class="avatar-img">
+    <img src="https://i.pravatar.cc/64?img=32" alt="" class="avatar-img">
+    <img src="https://i.pravatar.cc/64?img=47" alt="" class="avatar-img">
+    <img src="https://i.pravatar.cc/64?img=5"  alt="" class="avatar-img">
+  </div>
+  <span class="avatar-note">Building Renthly with early landlords like you</span>
+</div>
+     
     <!-- RIGHT: mockups -->
     <div class="hero-visual">
 
@@ -183,10 +186,7 @@
 
   </div>
 
-  <div class="scroll-cue reveal" data-dir="up" style="--d:0.8s">
-    <span>Scroll</span>
-    <div class="scroll-line"><i></i></div>
-  </div>
+
 </section>
 
 <script src="main.js"></script>
