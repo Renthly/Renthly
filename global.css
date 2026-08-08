@@ -63,11 +63,9 @@ img { max-width: 100%; display: block; }
   background-size: 200px 200px;
 }
 
-.container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 var(--container-pad);
-  position: relative;
+.hero .container {
+  max-width: 100%;
+  padding: 0 16px;
 }
 
 .anim-hidden { opacity: 0; }

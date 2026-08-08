@@ -152,68 +152,91 @@
 
 .hero-horizon {
   position: absolute;
-  bottom: -35vh;
+  bottom: -45vh;
   left: 50%;
   transform: translateX(-50%);
-  width: 300vw;
-  height: 70vh;
+  width: 350vw;
+  height: 90vh;
   border-radius: 50% 50% 0 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 100%,
-    rgba(0, 240, 255, 0.6) 0%,
-    rgba(0, 240, 255, 0.35) 10%,
-    rgba(59, 157, 255, 0.18) 25%,
-    rgba(59, 157, 255, 0.05) 45%,
-    transparent 65%);
+  background: radial-gradient(ellipse 85% 65% at 50% 100%,
+    rgba(0, 240, 255, 0.7) 0%,
+    rgba(0, 240, 255, 0.4) 8%,
+    rgba(59, 157, 255, 0.2) 20%,
+    rgba(59, 157, 255, 0.06) 38%,
+    transparent 55%);
   pointer-events: none;
-  filter: blur(2px);
+  filter: blur(1px);
   animation: horizonBreathe 5s ease-in-out infinite;
   z-index: 1;
 }
 
+/* The bright crest line — follows the yellow arc */
 .hero-horizon::before {
   content: '';
   position: absolute;
-  bottom: 34vh;
+  bottom: 44vh;
   left: 50%;
   transform: translateX(-50%);
-  width: 120vw;
-  height: 4px;
+  width: 180vw;
+  height: 3px;
   border-radius: 50%;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(0, 240, 255, 0.3) 20%,
-    rgba(0, 240, 255, 1) 45%,
-    rgba(0, 240, 255, 1) 55%,
-    rgba(59, 157, 255, 0.5) 80%,
+    rgba(0, 240, 255, 0.2) 10%,
+    rgba(0, 240, 255, 0.8) 30%,
+    rgba(0, 240, 255, 1) 50%,
+    rgba(0, 240, 255, 0.8) 70%,
+    rgba(59, 157, 255, 0.4) 90%,
     transparent 100%);
   filter: blur(1px);
   box-shadow:
-    0 0 20px rgba(0, 240, 255, 1),
-    0 0 50px rgba(0, 240, 255, 0.7),
-    0 0 100px rgba(0, 240, 255, 0.4),
-    0 0 180px rgba(59, 157, 255, 0.2),
-    0 -30px 80px rgba(0, 240, 255, 0.3);
+    0 0 25px rgba(0, 240, 255, 1),
+    0 0 60px rgba(0, 240, 255, 0.7),
+    0 0 120px rgba(0, 240, 255, 0.4),
+    0 0 200px rgba(59, 157, 255, 0.2),
+    0 -40px 100px rgba(0, 240, 255, 0.25);
   animation: horizonLinePulse 3s ease-in-out infinite;
+}
+
+/* Extra bloom layer for intensity */
+.hero-horizon::after {
+  content: '';
+  position: absolute;
+  bottom: 42vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140vw;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(0, 240, 255, 0.1),
+    rgba(0, 240, 255, 0.4),
+    rgba(0, 240, 255, 0.1),
+    transparent);
+  filter: blur(6px);
+  opacity: 0.8;
 }
 
 @keyframes horizonBreathe {
   0%, 100% { opacity: 0.9; transform: translateX(-50%) scale(1); }
-  50% { opacity: 1; transform: translateX(-50%) scale(1.04); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.03); }
 }
 
 @keyframes horizonLinePulse {
-  0%, 100% { opacity: 0.8; filter: blur(1px) brightness(1); }
-  50% { opacity: 1; filter: blur(0.5px) brightness(1.4); }
+  0%, 100% { opacity: 0.75; filter: blur(1px) brightness(1); }
+  50% { opacity: 1; filter: blur(0.5px) brightness(1.5); }
 }
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 20px;
   align-items: center;
   position: relative;
   z-index: 2;
   height: calc(100vh - 80px);
-  padding-bottom: 30px;
+  padding-bottom: 20px;
+  width: 100%;
 }
 
 .hero-text {
