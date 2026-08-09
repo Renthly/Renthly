@@ -42,14 +42,17 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="horizon" aria-hidden="true"></div>
+  <div class="horizon-hotspot" aria-hidden="true"></div>
 
   <svg class="horizon-line" viewBox="0 0 1400 260" preserveAspectRatio="none" aria-hidden="true">
     <defs>
       <linearGradient id="horizonFade" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%"  stop-color="#22f6ff" stop-opacity="0"/>
-        <stop offset="12%" stop-color="#22f6ff" stop-opacity="0.9"/>
-        <stop offset="50%" stop-color="#8ff9ff" stop-opacity="1"/>
-        <stop offset="88%" stop-color="#22f6ff" stop-opacity="0.9"/>
+        <stop offset="0%"   stop-color="#22f6ff" stop-opacity="0"/>
+        <stop offset="18%"  stop-color="#22f6ff" stop-opacity="0.85"/>
+        <stop offset="42%"  stop-color="#bdfeff" stop-opacity="1"/>
+        <stop offset="50%"  stop-color="#ffffff" stop-opacity="1"/>
+        <stop offset="58%"  stop-color="#bdfeff" stop-opacity="1"/>
+        <stop offset="82%"  stop-color="#22f6ff" stop-opacity="0.85"/>
         <stop offset="100%" stop-color="#22f6ff" stop-opacity="0"/>
       </linearGradient>
       <filter id="horizonGlow" x="-50%" y="-50%" width="200%" height="200%">
@@ -60,7 +63,8 @@
         </feMerge>
       </filter>
     </defs>
-    <path d="M0,240 Q700,-60 1400,240" fill="none" stroke="url(#horizonFade)" stroke-width="2.5" filter="url(#horizonGlow)"/>
+    <path d="M0,240 Q700,-60 1400,240" fill="none" stroke="url(#horizonFade)" stroke-width="4" filter="url(#horizonGlow)"/>
+    <path d="M560,150 Q700,60 840,150" fill="none" stroke="#ffffff" stroke-width="3" filter="url(#horizonGlow)" opacity="0.9"/>
   </svg>
 
   <div class="grain" aria-hidden="true"></div>
@@ -69,13 +73,14 @@
 
     <!-- LEFT: copy -->
     <div class="hero-copy">
-      <p class="eyebrow reveal" data-dir="up">Properties on Autopilot.</p>
+      <p class="eyebrow reveal" data-dir="up">The missing middle, solved</p>
 
       <h1 class="headline">
-  <span class="reveal" data-dir="up" style="--d:0.05s">Whatever the <em class="script">size</em> of your</span>
-  <span class="reveal" data-dir="up" style="--d:0.16s"><em class="script">portfolio</em>, Renthly has a</span>
-  <span class="reveal" data-dir="up" style="--d:0.27s">plan <em class="script">built</em> for it.</span>
-</h1>
+        <span class="reveal" data-dir="up" style="--d:0.05s">Whatever the <em class="script">size</em> of your</span>
+        <span class="reveal" data-dir="up" style="--d:0.16s"><em class="script">portfolio</em>, Renthly has a</span>
+        <span class="reveal" data-dir="up" style="--d:0.27s">plan <em class="script">built</em> for it.</span>
+      </h1>
+
       <p class="subtext reveal" data-dir="up" style="--d:0.42s">
         From single properties to large portfolios — including the growing,
         mid-sized landlords that most platforms leave behind.
@@ -86,18 +91,19 @@
         <a href="#" class="btn-ghost"><span>See pricing</span></a>
       </div>
       <p class="trial-note reveal" data-dir="up" style="--d:0.56s">14-day free trial · No credit card required</p>
-    <div class="trust-badges reveal" data-dir="up" style="--d:0.66s">
-  <div class="badge-avatars">
-    <img src="https://i.pravatar.cc/72?img=12" alt="" class="badge-avatar">
-    <img src="https://i.pravatar.cc/72?img=32" alt="" class="badge-avatar">
-    <img src="https://i.pravatar.cc/72?img=47" alt="" class="badge-avatar">
-    <img src="https://i.pravatar.cc/72?img=5"  alt="" class="badge-avatar">
-  </div>
-  <div class="badge-text">
-    <span class="badge-stars">★★★★★</span>
-    <span class="badge-label">Trusted by early landlords nationwide</span>
-  </div>
-</div>
+
+      <div class="trust-badges reveal" data-dir="up" style="--d:0.66s">
+        <div class="badge-avatars">
+          <img src="https://i.pravatar.cc/72?img=12" alt="" class="badge-avatar">
+          <img src="https://i.pravatar.cc/72?img=32" alt="" class="badge-avatar">
+          <img src="https://i.pravatar.cc/72?img=47" alt="" class="badge-avatar">
+          <img src="https://i.pravatar.cc/72?img=5"  alt="" class="badge-avatar">
+        </div>
+        <div class="badge-text">
+          <span class="badge-stars">★★★★★</span>
+          <span class="badge-label">Trusted by early landlords nationwide</span>
+        </div>
+      </div>
     </div>
 
     <!-- RIGHT: mockups -->
