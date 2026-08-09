@@ -304,25 +304,28 @@ ul{ list-style:none; }
 }
 
 .headline{
-  font-family:var(--font-body);   /* professional sans, not handwritten */
+  font-family:var(--font-body);
   font-style:normal;
   font-weight:700;
-  font-size:clamp(2.5rem, 3.6vw, 3.3rem);  /* ~10px bigger than before */
-  line-height:1.16; 
+  font-size:clamp(2.5rem, 3.6vw, 3.3rem);
+  line-height:1.26;      /* was 1.16 — gives descenders room */
   letter-spacing:-.015em;
   color:var(--cream);
+  overflow:visible;      /* ADD — safety net so nothing clips */
 }
 .headline span{ display:block; }
 .headline .script{
-  font-family:var(--font-body);   /* was var(--font-script) — now sans instead of cursive */
+  font-family:var(--font-body);
   font-weight:800;
   font-style:italic;
-  font-size:1.05em;               /* sans italics read bigger than script at the same em, dial back a touch */
+  font-size:1.05em;
   background:linear-gradient(90deg, var(--sky), #2d8fff);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
   padding-right:.05em;
+  padding-bottom:.06em;   /* ADD — stops the descender (the tail on "p") getting cut */
+  display:inline-block;   /* ADD — makes the padding actually apply */
 }
 
 .subtext{
@@ -394,7 +397,7 @@ margin-top:10px;
 /* ---- visual / mockups ---- */
 .hero-visual{
   position:relative;
-  height:clamp(400px, 52vh, 520px);   /* was clamp(320px, 44vh, 420px) */
+  height:clamp(440px, 56vh, 560px);   /* was clamp(400px, 52vh, 520px) */
 }
 .mock{
   position:absolute;
@@ -406,7 +409,7 @@ margin-top:10px;
 }
 
 .mock-main{
-  width:min(420px, 90%);   /* was min(340px, 86%) */
+  width:min(435px, 90%);   /* was min(420px, 90%) — +15px */
   left:50%;
   top:50%;
   transform:translate(-50%,-50%);
@@ -432,7 +435,7 @@ margin-top:10px;
   font-family:monospace;
 }
 
-.mock-body{ padding:14px; }
+.mock-body{ padding:18px 14px;  }
 .mb-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
 .mb-title{ font-size:.82rem; font-weight:700; color:var(--cream); }
 .mb-pill{
@@ -471,7 +474,7 @@ margin-top:10px;
 .mb-row-text{ font-size:.64rem; color:var(--cream-dim); flex:1; }
 .mb-row-tag{ font-size:.56rem; color:var(--cream-faint); }
 
-.mock-small{ width:200px; z-index:3; }   /* was 160px */
+.mock-small{ width:230px; z-index:3; }   /* was 200px */
 .mock-tr{
   top:0%; right:-2%;
   animation:floatTR 5.5s ease-in-out infinite;
