@@ -275,7 +275,7 @@ ul{ list-style:none; }
   width:min(600px, 60vw);
   height:min(280px, 30vh);
   transform:translate(-50%, 0);
-  background:radial-gradient(ellipse at center, rgba(255,255,255,0.9) 0%, rgba(190,254,255,0.55) 22%, rgba(34,246,255,0.28) 45%, transparent 72%);
+  background:radial-gradient(ellipse at center, rgba(34,246,255,0.9) 0%, rgba(190,254,255,0.5) 26%, rgba(255,255,255,0.22) 50%, transparent 72%);
   filter:blur(6px);
   mix-blend-mode:screen;
   pointer-events:none;
@@ -435,7 +435,7 @@ ul{ list-style:none; }
 /* ---- visual / mockups ---- */
 .hero-visual{
   position:relative;
-  height:clamp(440px, 56vh, 560px);
+  height:clamp(480px, 60vh, 600px);
 }
 
 .mock{
@@ -448,7 +448,7 @@ ul{ list-style:none; }
 }
 
 .mock-main{
-  width:min(435px, 90%);
+  width:min(500px, 96%);
   left:50%;
   top:50%;
   transform:translate(-50%,-50%);
