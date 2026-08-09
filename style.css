@@ -237,49 +237,58 @@ ul{ list-style:none; }
   background:var(--charcoal);
 }
 
-.horizon{
+/* ---- horizon glow (disc technique) ---- */
+.hero::before{
+  content:"";
   position:absolute;
-  left:50%; bottom:-16%;
-  width:min(1900px, 210vw);
-  aspect-ratio:1400/760;
-  transform:translateX(-50%);
-  background:url('assets/horizon-glow.png') center bottom / cover no-repeat;
-  opacity:1;
-  filter:blur(20px) brightness(1.1) saturate(1.05);
-  mix-blend-mode:screen;
+  inset:-10%;
+  z-index:1;
   pointer-events:none;
+  background:
+    radial-gradient(176% 61% at 50% 70%, rgba(34,246,255,0.12) 0%, transparent 65%),
+    radial-gradient(110% 24% at 50% 70%, rgba(34,246,255,0.29) 0%, transparent 70%),
+    radial-gradient(45% 55% at 6% 62%, rgba(37,99,235,0.05) 0%, transparent 70%),
+    radial-gradient(45% 55% at 94% 62%, rgba(77,178,255,0.05) 0%, transparent 70%);
+  filter:blur(70px);
   animation:horizonPulse 6s ease-in-out infinite;
 }
 @keyframes horizonPulse{
-  0%,100%{ opacity:.85; }
+  0%,100%{ opacity:.8; }
   50%{ opacity:1; }
 }
 
-/* glowing horizon arc — cyan, feathered/fading at both ends, hot white core at center */
-.horizon-line{
+.horizon-surface{
   position:absolute;
-  left:50%; bottom:-4%;
-  width:min(2200px, 200vw);
-  height:auto;
+  left:50%; top:88%;
+  width:165%;
+  aspect-ratio:1;
   transform:translateX(-50%);
+  border-radius:50%;
+  z-index:2;
   pointer-events:none;
-  z-index:1;
-  filter:blur(1.5px);
-  animation:horizonPulse 6s ease-in-out infinite;
+  background:var(--charcoal);
+  border-top:2.5px solid var(--cyan);
+  box-shadow:
+    0 0 13px rgba(34,246,255,0.9),
+    0 0 49px rgba(34,246,255,0.55),
+    0 0 154px 25px rgba(34,246,255,0.28);
 }
 
-
-.grain{
-  position:absolute; inset:0;
-  background:
-    radial-gradient(1200px 500px at 15% 0%, rgba(34,246,255,0.06), transparent 60%),
-    radial-gradient(900px 500px at 100% 20%, rgba(77,178,255,0.05), transparent 60%);
+/* film grain — kills gradient banding */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:3;
   pointer-events:none;
+  mix-blend-mode:overlay;
+  opacity:.08;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .hero-inner{
   position:relative;
-  z-index:2;
+  z-index:4;
   width:100%;
   max-width:1400px;
   margin:0 auto;
@@ -417,7 +426,7 @@ ul{ list-style:none; }
 /* ---- visual / mockups ---- */
 .hero-visual{
   position:relative;
-  height:clamp(500px, 62vh, 620px);
+  height:clamp(440px, 56vh, 560px);
 }
 
 .mock{
@@ -430,7 +439,7 @@ ul{ list-style:none; }
 }
 
 .mock-main{
-  width:min(580px, 46vw);
+  width:min(435px, 90%);
   left:50%;
   top:50%;
   transform:translate(-50%,-50%);
@@ -495,7 +504,7 @@ ul{ list-style:none; }
 .mb-row-text{ font-size:.64rem; color:var(--cream-dim); flex:1; }
 .mb-row-tag{ font-size:.56rem; color:var(--cream-faint); }
 
-.mock-small{ width:240px; z-index:3; }
+.mock-small{ width:230px; z-index:3; }
 .mock-tr{
   top:0%; right:-2%;
   animation:floatTR 5.5s ease-in-out infinite;
