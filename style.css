@@ -224,37 +224,48 @@ ul{ list-style:none; }
 }
 
 /* ===================================================================
-   HERO
+   HERO — sized to fit one laptop screen, no scroll
 =================================================================== */
 .hero{
   position:relative;
+  height:100svh;
+  min-height:560px;
+  padding:104px 24px 26px;
   display:flex;
   align-items:center;
+  overflow:hidden;
   background:var(--charcoal);
-  min-height:100svh;
-  height:100svh;
-  overflow-y:auto;     /* was hidden — auto = safety net on short screens, invisible on normal ones */
-  overflow-x:hidden;
-  padding:110px 24px 30px; /* was 130px 24px 40px — trims the height budget content needs */
 }
 
 .horizon{
   position:absolute;
-  left:50%; bottom:-10%;        /* was -6% */
-  width:min(1600px, 180vw);     /* was min(1400px, 160vw) */
+  left:50%; bottom:-10%;
+  width:min(1500px, 170vw);
   aspect-ratio:1400/760;
   transform:translateX(-50%);
   background:url('assets/horizon-glow.png') center bottom / cover no-repeat;
-  opacity:1;                    /* was .85 */
-  filter:blur(6px);             /* ADD — extra feather on the raster glow itself */
+  opacity:.7;
+  filter:blur(4px);
   mix-blend-mode:screen;
   pointer-events:none;
   animation:horizonPulse 6s ease-in-out infinite;
 }
-
 @keyframes horizonPulse{
-  0%,100%{ opacity:.72; }
-  50%{ opacity:.95; }
+  0%,100%{ opacity:.58; }
+  50%{ opacity:.82; }
+}
+
+/* cursive glowing horizon arc — cyan, feathered/fading at both ends */
+.horizon-line{
+  position:absolute;
+  left:50%; bottom:-2%;
+  width:min(1500px, 170vw);
+  height:auto;
+  transform:translateX(-50%);
+  pointer-events:none;
+  z-index:1;
+  filter:blur(.4px);
+  animation:horizonPulse 6s ease-in-out infinite;
 }
 
 .grain{
@@ -269,32 +280,42 @@ ul{ list-style:none; }
   position:relative;
   z-index:2;
   width:100%;
-  max-width:1280px;
+  max-width:1180px;
   margin:0 auto;
   display:grid;
   grid-template-columns:1.05fr 1fr;
-  gap:40px;
+  gap:28px;
   align-items:center;
 }
 
 /* ---- copy ---- */
-.eyebrow{ margin-bottom:14px; }
-
-.headline{
-  font-family:var(--font-script);   /* ADD — whole headline now cursive, not just highlighted words */
-  font-style:italic;                /* ADD — italicizes the plain/main words */
-  font-size:clamp(2.2rem, 4.4vw, 3.6rem); /* bump up since script faces read smaller */
-  line-height:1.15;
+.eyebrow{
+  display:inline-block;
+  font-size:.72rem;
   font-weight:600;
-  letter-spacing:-.01em;
-  color:var(--cream);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  padding:5px 12px;
+  border:1px solid var(--cyan-soft);
+  border-radius:999px;
+  margin-bottom:14px;
 }
 
+.headline{
+  font-family:var(--font-script);
+  font-style:italic;
+  font-size:clamp(1.7rem, 3.1vw, 2.5rem);
+  line-height:1.14;
+  font-weight:600;
+  letter-spacing:-.005em;
+  color:var(--cream);
+}
 .headline span{ display:block; }
 .headline .script{
   font-weight:700;
-  font-style:italic;                /* was normal — now matches the italic main text */
-  font-size:1.2em;
+  font-style:italic;
+  font-size:1.16em;
   background:linear-gradient(90deg, var(--cyan), var(--sky));
   -webkit-background-clip:text;
   background-clip:text;
@@ -302,23 +323,27 @@ ul{ list-style:none; }
   padding-right:.05em;
 }
 
-/*Now the whole headline reads in Caveat italic, with the cyan/blue gradient words just slightly bigger and bolder for emphasis instead of being a totally different font.
+.subtext{
+  margin-top:12px;
+  max-width:460px;
+  font-size:.9rem;
+  line-height:1.55;
+  color:var(--cream-dim);
+}
 
-Want me to just apply all three fixes directly to your files and send back a clean, re-screenshotted version so you can eyeball it before touching any code yourself?
-*/
-.subtext{ margin-top:16px; }        /* was 22px */
-.hero-actions{ margin-top:22px; }   /* was 34px */
-.trial-note{ margin-top:10px; }     /* was 14px */
-.avatars{ margin-top:14px; }        /* was 18px */
-
-.hero-visual{ height:clamp(380px, 46vh, 520px); } /* was fixed 560px */
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:18px;
+}
 
 .btn-primary{
   position:relative;
-  padding:15px 28px;
-  border-radius:12px;
+  padding:11px 22px;
+  border-radius:10px;
   font-weight:600;
-  font-size:.95rem;
+  font-size:.85rem;
   color:var(--ink);
   background:linear-gradient(90deg, var(--cyan), var(--sky));
   overflow:hidden;
@@ -338,17 +363,17 @@ Want me to just apply all three fixes directly to your files and send back a cle
 
 .btn-ghost{
   position:relative;
-  padding:15px 26px;
-  border-radius:12px;
+  padding:11px 20px;
+  border-radius:10px;
   font-weight:600;
-  font-size:.95rem;
+  font-size:.85rem;
   color:var(--cream);
   border:1px solid rgba(255,252,230,0.22);
 }
 .btn-ghost::before{
   content:'';
   position:absolute;
-  left:26px; right:26px; bottom:10px;
+  left:20px; right:20px; bottom:8px;
   height:2px;
   background:var(--cyan);
   transform:scaleX(0);
@@ -359,42 +384,28 @@ Want me to just apply all three fixes directly to your files and send back a cle
 .btn-ghost:hover::before{ transform:scaleX(1); }
 
 .trial-note{
-  margin-top:14px;
-  font-size:.82rem;
+  margin-top:10px;
+  font-size:.74rem;
   color:var(--cream-faint);
 }
-
-.trust{
-  display:flex;
-  align-items:center;
-  gap:22px;
-  margin-top:42px;
-  padding-top:28px;
-  border-top:1px solid var(--panel-line);
-  flex-wrap:wrap;
-}
-.trust-item{ display:flex; flex-direction:column; gap:4px; max-width:150px; }
-.trust-num{ font-size:1.1rem; font-weight:700; color:var(--cyan); }
-.trust-label{ font-size:.72rem; line-height:1.35; color:var(--cream-faint); }
-.trust-div{ width:1px; height:34px; background:var(--panel-line); }
 
 /* ---- visual / mockups ---- */
 .hero-visual{
   position:relative;
-  height:560px;
+  height:clamp(320px, 44vh, 420px);
 }
 
 .mock{
   position:absolute;
-  border-radius:18px;
+  border-radius:16px;
   background:linear-gradient(180deg, var(--panel), var(--charcoal-soft));
   border:1px solid var(--panel-line);
-  box-shadow:0 30px 60px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.02);
+  box-shadow:0 24px 50px -18px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.02);
   backdrop-filter:blur(6px);
 }
 
 .mock-main{
-  width:min(430px, 88%);
+  width:min(340px, 86%);
   left:50%;
   top:50%;
   transform:translate(-50%,-50%);
@@ -402,103 +413,103 @@ Want me to just apply all three fixes directly to your files and send back a cle
 }
 @keyframes floatMain{
   0%,100%{ transform:translate(-50%,-50%) translateY(0); }
-  50%{ transform:translate(-50%,-50%) translateY(-14px); }
+  50%{ transform:translate(-50%,-50%) translateY(-10px); }
 }
 
 .mock-bar{
   display:flex; align-items:center; gap:6px;
-  padding:12px 14px;
+  padding:9px 12px;
   border-bottom:1px solid var(--panel-line);
 }
-.mock-bar.tiny{ padding:9px 11px; }
-.dot{ width:9px; height:9px; border-radius:50%; }
+.mock-bar.tiny{ padding:7px 10px; }
+.dot{ width:8px; height:8px; border-radius:50%; }
 .dot.r{ background:#ff5f57; } .dot.y{ background:#febc2e; } .dot.g{ background:#28c840; }
 .mock-url{
-  margin-left:10px;
-  font-size:.68rem;
+  margin-left:8px;
+  font-size:.6rem;
   color:var(--cream-faint);
   font-family:monospace;
 }
 
-.mock-body{ padding:18px; }
-.mb-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
-.mb-title{ font-size:.95rem; font-weight:700; color:var(--cream); }
+.mock-body{ padding:14px; }
+.mb-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+.mb-title{ font-size:.82rem; font-weight:700; color:var(--cream); }
 .mb-pill{
-  font-size:.62rem; font-weight:700; letter-spacing:.05em;
+  font-size:.56rem; font-weight:700; letter-spacing:.05em;
   color:var(--ink);
   background:var(--cyan);
-  padding:3px 9px; border-radius:999px;
+  padding:2px 8px; border-radius:999px;
 }
 
-.mb-stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:16px; }
+.mb-stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-bottom:12px; }
 .mb-stat{
-  padding:10px 8px;
-  border-radius:10px;
+  padding:8px 6px;
+  border-radius:8px;
   background:rgba(255,255,255,0.03);
   border:1px solid var(--panel-line);
-  display:flex; flex-direction:column; gap:4px;
+  display:flex; flex-direction:column; gap:3px;
 }
-.mb-stat-label{ font-size:.6rem; color:var(--cream-faint); }
-.mb-stat-val{ font-size:.92rem; font-weight:700; color:var(--cream); }
+.mb-stat-label{ font-size:.54rem; color:var(--cream-faint); }
+.mb-stat-val{ font-size:.8rem; font-weight:700; color:var(--cream); }
 
 .mb-chart{
-  height:80px; margin-bottom:16px;
-  border-radius:10px;
+  height:60px; margin-bottom:12px;
+  border-radius:8px;
   background:rgba(255,255,255,0.03);
   border:1px solid var(--panel-line);
-  padding:5px 0 0;
+  padding:4px 0 0;
 }
 .chart-svg{ width:100%; height:100%; }
 .chart-line{ fill:none; stroke:var(--cyan); stroke-width:2.4; }
 .chart-fill{ fill:var(--cyan); opacity:.08; }
 
-.mb-rows{ display:flex; flex-direction:column; gap:9px; }
-.mb-row{ display:flex; align-items:center; gap:9px; }
-.mb-row-dot{ width:6px; height:6px; border-radius:50%; flex:none; }
+.mb-rows{ display:flex; flex-direction:column; gap:7px; }
+.mb-row{ display:flex; align-items:center; gap:8px; }
+.mb-row-dot{ width:5px; height:5px; border-radius:50%; flex:none; }
 .mb-row-dot.green{ background:#28c840; } .mb-row-dot.blue{ background:var(--sky); } .mb-row-dot.amber{ background:#febc2e; }
-.mb-row-text{ font-size:.72rem; color:var(--cream-dim); flex:1; }
-.mb-row-tag{ font-size:.62rem; color:var(--cream-faint); }
+.mb-row-text{ font-size:.64rem; color:var(--cream-dim); flex:1; }
+.mb-row-tag{ font-size:.56rem; color:var(--cream-faint); }
 
-.mock-small{ width:200px; z-index:3; }
+.mock-small{ width:160px; z-index:3; }
 .mock-tr{
-  top:2%; right:-2%;
+  top:0%; right:-2%;
   animation:floatTR 5.5s ease-in-out infinite;
 }
 @keyframes floatTR{
   0%,100%{ transform:translateY(0) rotate(-2deg); }
-  50%{ transform:translateY(-12px) rotate(-1deg); }
+  50%{ transform:translateY(-10px) rotate(-1deg); }
 }
 .mock-bl{
-  bottom:4%; left:-4%;
+  bottom:2%; left:-4%;
   animation:floatBL 6s ease-in-out infinite;
 }
 @keyframes floatBL{
   0%,100%{ transform:translateY(0) rotate(2deg); }
-  50%{ transform:translateY(-10px) rotate(1deg); }
+  50%{ transform:translateY(-8px) rotate(1deg); }
 }
 
-.mock-body-sm{ padding:13px 14px 15px; }
-.sm-title{ font-size:.78rem; font-weight:700; color:var(--cream); margin-bottom:10px; }
-.sm-row{ display:flex; align-items:center; gap:9px; margin-bottom:10px; }
-.sm-icon{ font-size:1rem; }
+.mock-body-sm{ padding:10px 11px 12px; }
+.sm-title{ font-size:.68rem; font-weight:700; color:var(--cream); margin-bottom:8px; }
+.sm-row{ display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+.sm-icon{ font-size:.85rem; }
 .sm-col{ display:flex; flex-direction:column; gap:2px; }
-.sm-line{ font-size:.68rem; color:var(--cream-dim); }
-.sm-sub{ font-size:.6rem; color:var(--cream-faint); }
+.sm-line{ font-size:.6rem; color:var(--cream-dim); }
+.sm-sub{ font-size:.54rem; color:var(--cream-faint); }
 .sm-badge{
   display:inline-block;
-  font-size:.6rem; font-weight:600;
+  font-size:.54rem; font-weight:600;
   color:var(--sky);
   background:rgba(77,178,255,0.12);
   border:1px solid rgba(77,178,255,0.3);
-  padding:3px 9px; border-radius:999px;
+  padding:2px 8px; border-radius:999px;
 }
-.sm-pay{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
-.sm-pay-label{ font-size:.68rem; color:var(--cream-faint); }
-.sm-pay-amt{ font-size:1rem; font-weight:700; color:var(--cyan); }
+.sm-pay{ display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+.sm-pay-label{ font-size:.6rem; color:var(--cream-faint); }
+.sm-pay-amt{ font-size:.88rem; font-weight:700; color:var(--cyan); }
 .sm-btn{
-  width:100%; padding:9px;
-  border-radius:9px;
-  font-size:.72rem; font-weight:700;
+  width:100%; padding:8px;
+  border-radius:8px;
+  font-size:.64rem; font-weight:700;
   color:var(--ink);
   background:linear-gradient(90deg, var(--cyan), var(--sky));
 }
@@ -511,40 +522,20 @@ Want me to just apply all three fixes directly to your files and send back a cle
   z-index:1;
 }
 .glow-orb-1{
-  width:260px; height:260px;
+  width:220px; height:220px;
   background:radial-gradient(circle, var(--cyan-soft), transparent 70%);
-  top:10%; right:10%;
+  top:8%; right:8%;
   animation:orbDrift 8s ease-in-out infinite;
 }
 .glow-orb-2{
-  width:220px; height:220px;
+  width:180px; height:180px;
   background:radial-gradient(circle, rgba(77,178,255,0.28), transparent 70%);
-  bottom:0%; left:5%;
+  bottom:0%; left:4%;
   animation:orbDrift 9s ease-in-out infinite reverse;
 }
 @keyframes orbDrift{
   0%,100%{ transform:translate(0,0); }
-  50%{ transform:translate(-16px, 18px); }
-}
-
-/* ---- scroll cue ---- */
-.scroll-cue{
-  position:absolute;
-  left:24px; bottom:26px;
-  z-index:2;
-  display:flex; align-items:center; gap:10px;
-  font-size:.7rem; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--cream-faint);
-}
-.scroll-line{ width:1px; height:34px; background:var(--panel-line); overflow:hidden; }
-.scroll-line i{
-  display:block; width:100%; height:10px;
-  background:var(--cyan);
-  animation:scrollDrop 1.8s ease-in-out infinite;
-}
-@keyframes scrollDrop{
-  0%{ transform:translateY(-10px); }
-  100%{ transform:translateY(34px); }
+  50%{ transform:translate(-14px, 16px); }
 }
 
 /* ===================================================================
@@ -555,9 +546,9 @@ Want me to just apply all three fixes directly to your files and send back a cle
   transition:opacity .85s var(--ease), transform .85s var(--ease);
   transition-delay:var(--d, 0s);
 }
-.reveal[data-dir="up"]{ transform:translateY(34px); }
-.reveal[data-dir="left"]{ transform:translateX(-46px); }
-.reveal[data-dir="right"]{ transform:translateX(46px); }
+.reveal[data-dir="up"]{ transform:translateY(28px); }
+.reveal[data-dir="left"]{ transform:translateX(-40px); }
+.reveal[data-dir="right"]{ transform:translateX(40px); }
 
 .reveal.in{
   opacity:1;
@@ -568,8 +559,9 @@ Want me to just apply all three fixes directly to your files and send back a cle
    RESPONSIVE
 =================================================================== */
 @media (max-width:1080px){
+  .hero{ height:auto; min-height:100svh; padding:110px 24px 40px; }
   .hero-inner{ grid-template-columns:1fr; }
-  .hero-visual{ height:480px; order:-1; }
+  .hero-visual{ height:420px; order:-1; }
   .hero-copy{ text-align:left; }
 }
 
@@ -581,55 +573,22 @@ Want me to just apply all three fixes directly to your files and send back a cle
 }
 
 @media (max-width:640px){
-  .hero{ padding:120px 18px 50px; }
-  .hero-visual{ height:460px; }
+  .hero{ padding:104px 18px 40px; }
+  .hero-visual{ height:400px; }
   .mock-main{ width:88%; top:46%; }
   .mock-small{ width:132px; }
   .mock-body-sm{ padding:9px 10px 11px; }
-  .sm-title{ font-size:.72rem; margin-bottom:8px; }
-  .sm-line{ font-size:.62rem; }
+  .sm-title{ font-size:.68rem; margin-bottom:8px; }
+  .sm-line{ font-size:.6rem; }
   .mock-tr{ top:-6%; right:0%; }
   .mock-bl{ bottom:-4%; left:0%; }
-  .trust{ gap:16px; }
-  .trust-item{ max-width:120px; }
-  .scroll-cue{ display:none; }
 }
 
 @media (max-width:420px){
-  .hero-visual{ height:420px; }
+  .hero-visual{ height:360px; }
   .mock-main{ width:90%; }
-  .mock-small{ width:122px; }
+  .mock-small{ width:120px; }
   .mock-tr{ top:-8%; right:-2%; }
   .mock-bl{ bottom:-6%; left:-2%; }
-  .headline{ font-size:2rem; }
-}
-.avatars{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-top:18px;
-}
-.avatar-stack{ display:flex; }
-.avatar-img{
-  width:38px; height:38px;
-  border-radius:50%;
-  object-fit:cover;
-  border:2px solid var(--charcoal);
-  margin-left:-12px;
-  box-shadow:0 0 0 1px rgba(255,252,230,0.15);
-}
-.avatar-img:first-child{ margin-left:0; }
-.avatar-note{
-  font-size:.78rem;
-  color:var(--cream-faint);
-}
-.horizon-line{
-  position:absolute;
-  left:50%; bottom:-4%;
-  width:min(1400px, 160vw);
-  height:auto;
-  transform:translateX(-50%);
-  pointer-events:none;
-  z-index:1;
-  animation:horizonPulse 6s ease-in-out infinite; /* reuses your existing keyframe */
+  .headline{ font-size:1.6rem; }
 }
