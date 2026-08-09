@@ -245,7 +245,7 @@ ul{ list-style:none; }
   transform:translateX(-50%);
   background:url('assets/horizon-glow.png') center bottom / cover no-repeat;
   opacity:1;
-  filter:blur(14px) brightness(1.25) saturate(1.15);
+  filter:blur(20px) brightness(1.1) saturate(1.05);
   mix-blend-mode:screen;
   pointer-events:none;
   animation:horizonPulse 6s ease-in-out infinite;
@@ -259,7 +259,7 @@ ul{ list-style:none; }
 .horizon-line{
   position:absolute;
   left:50%; bottom:-4%;
-  width:min(1600px, 180vw);
+  width:min(2200px, 200vw);
   height:auto;
   transform:translateX(-50%);
   pointer-events:none;
