@@ -601,7 +601,7 @@ ul{ list-style:none; }
 @media (max-width:1080px){
   .hero{ height:auto; min-height:100svh; padding:110px 40px 40px; }
   .hero-inner{ grid-template-columns:1fr; }
-  .hero-visual{ height:420px; order:-1; }
+  .hero-visual{ height:420px; }
   .hero-copy{ text-align:left; }
 }
 
