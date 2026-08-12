@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renthly — Grows with you.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paprika&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<header class="island-wrap">
+  <nav class="island" id="island">
+    <a href="#" class="logo">Renthly</a>
+
+    <ul class="tabs">
+      <li><a href="#" class="tab-link active"><span>Features</span></a></li>
+      <li><a href="#" class="tab-link"><span>Pricing</span></a></li>
+      <li><a href="#" class="tab-link"><span>About</span></a></li>
+      <li><a href="#" class="tab-link"><span>Resources</span></a></li>
+    </ul>
+
+    <a href="#" class="btn-contact"><span>Contact us</span></a>
+
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" class="mob-link">Features</a>
+    <a href="#" class="mob-link">Pricing</a>
+    <a href="#" class="mob-link">About</a>
+    <a href="#" class="mob-link">Resources</a>
+    <a href="#" class="mob-cta">Contact us</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="horizon-surface" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+
+    <!-- LEFT: copy -->
+    <div class="hero-copy">
+      <p class="eyebrow reveal" data-dir="up">The missing middle, solved</p>
+
+      <h1 class="headline">
+        <span class="reveal" data-dir="up" style="--d:0.05s">Whatever the <em class="script">size</em> of your</span>
+        <span class="reveal" data-dir="up" style="--d:0.16s"><em class="script">portfolio</em>, Renthly has a plan <em class="script">built</em> for it.</span>
+      </h1>
+
+      <p class="subtext reveal" data-dir="up" style="--d:0.42s">
+        From single properties to large portfolios — including the growing,
+        mid-sized landlords that most platforms leave behind.
+      </p>
+
+      <div class="hero-actions reveal" data-dir="up" style="--d:0.5s">
+        <a href="#" class="btn-primary"><span>Start free trial</span></a>
+        <a href="#" class="btn-ghost"><span>See pricing</span></a>
+      </div>
+      <p class="trial-note reveal" data-dir="up" style="--d:0.56s">14-day free trial · No credit card required</p>
+
+      <div class="trust-badges reveal" data-dir="up" style="--d:0.66s">
+        <div class="badge-avatars">
+          <img src="https://i.pravatar.cc/72?img=12" alt="" class="badge-avatar">
+          <img src="https://i.pravatar.cc/72?img=32" alt="" class="badge-avatar">
+          <img src="https://i.pravatar.cc/72?img=47" alt="" class="badge-avatar">
+          <img src="https://i.pravatar.cc/72?img=5"  alt="" class="badge-avatar">
+        </div>
+        <div class="badge-text">
+          <span class="badge-stars">★★★★★</span>
+          <span class="badge-label">Trusted by early landlords nationwide</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: mockups -->
+    <div class="hero-visual">
+
+      <!-- big center mockup: analytics dashboard -->
+      <div class="mock mock-main reveal" data-dir="right" style="--d:0.2s">
+        <div class="mock-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="mock-url">app.renthly.com/dashboard</span>
+        </div>
+        <div class="mock-body">
+          <div class="mb-head">
+            <p class="mb-title">Portfolio overview</p>
+            <span class="mb-pill">Live</span>
+          </div>
+
+          <div class="mb-stats">
+            <div class="mb-stat">
+              <span class="mb-stat-label">Occupancy</span>
+              <span class="mb-stat-val">96.4%</span>
+            </div>
+            <div class="mb-stat">
+              <span class="mb-stat-label">Rent collected</span>
+              <span class="mb-stat-val">$184,200</span>
+            </div>
+            <div class="mb-stat">
+              <span class="mb-stat-label">Open requests</span>
+              <span class="mb-stat-val">7</span>
+            </div>
+          </div>
+
+          <div class="mb-chart">
+            <svg viewBox="0 0 300 90" preserveAspectRatio="none" class="chart-svg">
+              <polygon class="chart-fill" points="0,70 30,60 60,64 90,45 120,50 150,30 180,36 210,20 240,24 270,10 300,14 300,90 0,90" />
+              <polyline class="chart-line" points="0,70 30,60 60,64 90,45 120,50 150,30 180,36 210,20 240,24 270,10 300,14" />
+            </svg>
+          </div>
+
+          <div class="mb-rows">
+            <div class="mb-row">
+              <span class="mb-row-dot green"></span>
+              <span class="mb-row-text">Maple Street Apts — rent paid</span>
+              <span class="mb-row-tag">Today</span>
+            </div>
+            <div class="mb-row">
+              <span class="mb-row-dot blue"></span>
+              <span class="mb-row-text">Unit 4B — lease renewal sent</span>
+              <span class="mb-row-tag">Today</span>
+            </div>
+            <div class="mb-row">
+              <span class="mb-row-dot amber"></span>
+              <span class="mb-row-text">Cedar Court — maintenance flagged</span>
+              <span class="mb-row-tag">Yesterday</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- small top-right mockup: maintenance -->
+      <div class="mock mock-small mock-tr reveal" data-dir="up" style="--d:0.5s">
+        <div class="mock-bar tiny">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        </div>
+        <div class="mock-body-sm">
+          <p class="sm-title">Maintenance</p>
+          <div class="sm-row">
+            <span class="sm-icon">🛠️</span>
+            <div class="sm-col">
+              <span class="sm-line">Leaking faucet — Unit 12</span>
+              <span class="sm-sub">Assigned to Marco</span>
+            </div>
+          </div>
+          <span class="sm-badge">In progress</span>
+        </div>
+      </div>
+
+      <!-- small bottom-left mockup: tenant portal -->
+      <div class="mock mock-small mock-bl reveal" data-dir="left" style="--d:0.58s">
+        <div class="mock-bar tiny">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        </div>
+        <div class="mock-body-sm">
+          <p class="sm-title">Tenant portal</p>
+          <div class="sm-pay">
+            <span class="sm-pay-label">Rent due Aug 1</span>
+            <span class="sm-pay-amt">$1,450</span>
+          </div>
+          <button class="sm-btn">Pay rent</button>
+        </div>
+      </div>
+
+      <div class="glow-orb glow-orb-1"></div>
+      <div class="glow-orb glow-orb-2"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ SCROLL-LINKED IMAGE SEQUENCE ============ -->
+<section class="reel" id="reel">
+  <div class="reel-pin" id="reelPin">
+    <canvas id="reelCanvas" class="reel-canvas"></canvas>
+
+    <div class="reel-fade-top" aria-hidden="true"></div>
+    <div class="reel-fade-bottom" aria-hidden="true"></div>
+    <div class="reel-tint" aria-hidden="true"></div>
+    <div class="reel-veil" id="reelVeil" aria-hidden="true"></div>
+
+    <div class="reel-loader" id="reelLoader">
+      <span class="reel-loader-ring"></span>
+      <span class="reel-loader-text">Loading walkthrough — <span id="reelPct">0</span>%</span>
+    </div>
+
+    <div class="reel-caption">
+      <p class="reel-caption-eyebrow reveal" data-dir="up">See it in motion</p>
+      <p class="reel-caption-text reveal" data-dir="up" style="--d:0.1s">Scroll to walk through a property, live inside Renthly.</p>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
