@@ -603,6 +603,11 @@ ul{ list-style:none; }
   .hero-inner{ grid-template-columns:1fr; }
   .hero-visual{ height:420px; margin-top:32px; }
   .hero-copy{ text-align:left; }
+  /* top:88% was relative to .hero's total height, which grows tall once
+     text + mockups stack — that pushed the disc up into the content.
+     Anchor from the bottom instead so it always sits at the true bottom
+     of the section regardless of how tall the stacked content gets. */
+  .horizon-surface{ top:auto; bottom:calc(-165vw + 90px); }
 }
 
 @media (max-width:860px){
