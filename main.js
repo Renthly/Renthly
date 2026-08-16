@@ -84,3 +84,17 @@ if (tTrack && tPrev && tNext) {
   tPrev.addEventListener('click', () => scrollByCard(-1));
   tNext.addEventListener('click', () => scrollByCard(1));
 }
+
+// ============ PRODUCT PANEL HORIZONTAL SCROLL ============
+const pTrack = document.getElementById('productTrack');
+const pPrev = document.getElementById('pPrev');
+const pNext = document.getElementById('pNext');
+if (pTrack && pPrev && pNext) {
+  const scrollByPanel = (dir) => {
+    const panel = pTrack.querySelector('.p-panel');
+    const distance = panel ? panel.getBoundingClientRect().width : 300;
+    pTrack.scrollBy({ left: dir * distance, behavior: 'smooth' });
+  };
+  pPrev.addEventListener('click', () => scrollByPanel(-1));
+  pNext.addEventListener('click', () => scrollByPanel(1));
+}
