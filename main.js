@@ -89,12 +89,42 @@ if (tTrack && tPrev && tNext) {
 const pTrack = document.getElementById('productTrack');
 const pPrev = document.getElementById('pPrev');
 const pNext = document.getElementById('pNext');
-if (pTrack && pPrev && pNext) {
-  const scrollByPanel = (dir) => {
-    const panel = pTrack.querySelector('.p-panel');
-    const distance = panel ? panel.getBoundingClientRect().width : 300;
-    pTrack.scrollBy({ left: dir * distance, behavior: 'smooth' });
+if (pTrack) {
+  const panels = pTrack.querySelectorAll('.p-panel');
+
+  // Whichever panel's center is closest to the track's own center gets
+  // marked active (full opacity); everything else fades out.
+  let tickingActive = false;
+  const updateActivePanel = () => {
+    const trackRect = pTrack.getBoundingClientRect();
+    const centerX = trackRect.left + trackRect.width / 2;
+    let closest = null;
+    let closestDist = Infinity;
+    panels.forEach(panel => {
+      const r = panel.getBoundingClientRect();
+      const dist = Math.abs((r.left + r.width / 2) - centerX);
+      if (dist < closestDist) { closestDist = dist; closest = panel; }
+    });
+    panels.forEach(p => p.classList.toggle('active', p === closest));
+    tickingActive = false;
   };
-  pPrev.addEventListener('click', () => scrollByPanel(-1));
-  pNext.addEventListener('click', () => scrollByPanel(1));
+
+  pTrack.addEventListener('scroll', () => {
+    if (!tickingActive) {
+      tickingActive = true;
+      requestAnimationFrame(updateActivePanel);
+    }
+  });
+  window.addEventListener('resize', updateActivePanel);
+  updateActivePanel();
+
+  if (pPrev && pNext) {
+    const scrollByPanel = (dir) => {
+      const panel = pTrack.querySelector('.p-panel');
+      const distance = panel ? panel.getBoundingClientRect().width : 300;
+      pTrack.scrollBy({ left: dir * distance, behavior: 'smooth' });
+    };
+    pPrev.addEventListener('click', () => scrollByPanel(-1));
+    pNext.addEventListener('click', () => scrollByPanel(1));
+  }
 }
