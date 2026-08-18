@@ -85,6 +85,34 @@ if (tTrack && tPrev && tNext) {
   tNext.addEventListener('click', () => scrollByCard(1));
 }
 
+// ============ SMOOTH PARALLAX ============
+// Offset is based on each element's position relative to the viewport
+// (not raw page scrollY), so it stays naturally bounded and resets
+// cleanly as elements scroll through — no runaway values on long pages.
+const parallaxEls = document.querySelectorAll('.parallax');
+if (parallaxEls.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let tickingParallax = false;
+  const updateParallax = () => {
+    const viewportCenter = window.innerHeight / 2;
+    parallaxEls.forEach(el => {
+      const speed = parseFloat(el.dataset.speed || '0.15');
+      const rect = el.getBoundingClientRect();
+      const elCenter = rect.top + rect.height / 2;
+      const offset = (elCenter - viewportCenter) * speed;
+      el.style.setProperty('--py', `${(-offset).toFixed(1)}px`);
+    });
+    tickingParallax = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!tickingParallax) {
+      tickingParallax = true;
+      requestAnimationFrame(updateParallax);
+    }
+  }, { passive: true });
+  window.addEventListener('resize', updateParallax);
+  updateParallax();
+}
+
 // ============ PRODUCT PANEL HORIZONTAL SCROLL ============
 const pTrack = document.getElementById('productTrack');
 const pPrev = document.getElementById('pPrev');
